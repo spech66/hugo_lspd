@@ -1,3 +1,3 @@
-# hugo_lspd
+# LifelogSP Hugo Generator (hugo_lspd)
 
 Create Hugo website from lifelogging/quantified self data.
