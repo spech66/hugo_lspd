@@ -1,0 +1,11 @@
+{
+    "weightdata": "data/example/weight.csv",
+    "defaultheight": "186.0",
+    "journalpath": "data/example/journals/",
+    "enduranceworkoutdata": "data/example/enduranceworkout.csv",
+    "enduranceworkoutexercises": ["Running", "Walking", "Dancing", "Swimming", "Biking", "Yoga"],
+    "strengthtrainingdata": "data/example/strengthtraining.csv",
+    "strengthtrainingsxercises": ["Deadlift", "Squat", "Bench Press"],    
+    "dayliodata": "data/example/daylio_export.csv",    
+    "habitsdata": "data/example/Checkmarks.csv"
+}
