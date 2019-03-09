@@ -1,0 +1,15 @@
+{{ $exercise := (.Get "exercise") }}
+{{ $duration := (.Get "duration") }}
+{{ $distance := (.Get "distance") }}
+{{ $notes := (.Get "notes") }}
+{{ $rating := (.Get "rating") }}
+
+<h2>Ausdauertraining - {{ $exercise }}</h2>
+<p>
+        <strong>Dauer:</strong> {{ $duration }}<br />
+        <strong>Distanz:</strong> {{ $distance }}<br />
+        <strong>Bewertung:</strong> {{ $rating }}<br />
+        {{ with $notes }}
+            {{ . }}<br />
+        {{ end }}
+</p>

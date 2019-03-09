@@ -1,0 +1,15 @@
+footer {
+    padding: 2.5rem 0;
+    color: #999;
+    background-color: #f9f9f9;
+    border-top: 0.05rem solid #e5e5e5;
+}
+
+blockquote {
+    padding: 0 1rem;
+    margin-left: 0;
+    color: #6c777c;
+    border-left: .3rem solid #dce6f0
+}
+blockquote>:first-child{ margin-top: 0 }
+blockquote>:last-child{ margin-bottom: 0 }

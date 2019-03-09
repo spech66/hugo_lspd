@@ -1,0 +1,36 @@
+{{ $customDateFormat := "02.01.2006" }}
+{{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
+
+<div class="card">
+    {{- $images := $.Resources.ByType "image" -}}
+    {{- $featured := $images.GetMatch "*feature*" -}}
+    {{- $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") -}}
+    {{ $sitetitle := (.Title) }}
+    {{- with $featured -}}
+        {{ $thumb := .Resize "800x" }}
+        <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+    {{ end }}
+
+    <div class="card-body">
+        <span class="card-title">{{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }}</span>
+
+        <p class="card-text">{{ .Content }}</p>
+
+    </div>
+    <div class="card-footer">
+        <small class="text-muted">
+            {{ if ne .Type "page" }}
+                {{ if gt .Params.categories 0 }}
+                    {{ range .Params.categories }}
+                        <a href="{{ "/categories/" | relURL }}#{{ . | urlize }}" class="badge badge-primary"><span>{{ . | urlize }}</span></a>
+                    {{ end }}
+                {{ end }}
+                {{ if gt .Params.tags 0 }}
+                    {{ range .Params.tags }}
+                        <a href="{{ "/tags/" | relURL }}#{{ . | urlize }}" class="badge badge-secondary"><span>{{ . | urlize }}</span></a>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </small>
+    </div>
+</div>

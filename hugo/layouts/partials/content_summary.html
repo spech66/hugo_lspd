@@ -1,0 +1,46 @@
+{{ $customDateFormat := "02.01.2006" }}
+{{ with .Site.Params.customDateFormat }}{{ $customDateFormat = . }}{{ end }}
+
+<div class="card">
+    {{- $images := $.Resources.ByType "image" -}}
+    {{- $featured := $images.GetMatch "*feature*" -}}
+    {{- $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") -}}
+    {{ $startPageColumns := .Site.Params.startPageColumns }}
+    {{ $sitetitle := (.Title) }}
+    {{- with $featured -}}
+        {{ if $startPageColumns }}
+            {{ $thumb := .Resize "360x" }}
+            <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+        {{ else }}
+            {{ $thumb := .Resize "800x" }}
+            <img class="card-img-top" src="{{ $thumb.RelPermalink }}" alt="{{ $sitetitle }}" title="{{ $sitetitle }}">
+        {{ end }}
+    {{ end }}
+    <div class="card-body">
+        <h1 class="card-title"><a href="{{ .RelPermalink }}">{{ .PublishDate.Format $customDateFormat }}{{ if gt .Lastmod .PublishDate }}, last updated {{ .Lastmod.Format $customDateFormat }}{{ end }}</a></h1>
+        
+        {{ if eq .Site.Params.showPostSummary true }}
+            <p class="card-text">{{ .Summary }}</p>
+            <a href="{{ .RelPermalink }}" class="card-link">Lesen&hellip;</a>
+        {{ else }}
+            <p class="card-text">{{ .Content }}</p>
+        {{ end }}
+
+    </div>
+    <div class="card-footer">
+        <small class="text-muted">
+            {{ if ne .Type "page" }}
+                {{ if gt .Params.categories 0 }}
+                    {{ range .Params.categories }}
+                        <a href="{{ "/categories/" | relURL }}#{{ . | urlize }}" class="badge badge-primary"><span>{{ . | urlize }}</span></a>
+                    {{ end }}
+                {{ end }}
+                {{ if gt .Params.tags 0 }}
+                    {{ range .Params.tags }}
+                        <a href="{{ "/tags/" | relURL }}#{{ . | urlize }}" class="badge badge-secondary"><span>{{ . | urlize }}</span></a>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </small>
+    </div>
+</div>

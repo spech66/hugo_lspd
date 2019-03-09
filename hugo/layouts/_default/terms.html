@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+<div class="container mt-3 mb-3">
+    <h1>{{ .Title }}</h1>
+
+    {{ range $key, $value := .Data.Terms }}
+        <a href="#{{ $key }}" class="badge badge-primary"><span>{{ $key }}</span> <span class="badge badge-light">{{ $value.Count }}</span></a>
+    {{ end}}
+    
+    {{ range $key, $value := .Data.Terms }}
+        <h2 id="{{ $key }}">{{ $key }}</h2>
+        <ul>
+            {{ range $value.Pages.ByDate.Reverse }}
+                <li><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a></li>
+            {{ end}}
+        </ul>
+    {{ end}} 
+</div>
+
+{{ end }}

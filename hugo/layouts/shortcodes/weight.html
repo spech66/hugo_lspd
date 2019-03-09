@@ -1,0 +1,17 @@
+{{ $weight := (.Get "weight") }}
+{{ $bmi := (float (.Get "bmi")) }}
+
+<h2>Gewicht</h2>
+<p>
+    <strong>Gewicht:</strong> {{ $weight }}<br />
+    
+    {{- if gt $bmi 29 -}}
+        <strong>BMI:</strong> {{ $bmi }} - <span class="text-danger">Adipositas!</span>
+    {{- else if gt $bmi 29 -}}
+        <strong>BMI:</strong> {{ $bmi }} - <span class="text-warning">Übergewicht!</span>
+    {{- else if lt $bmi 18.5 -}}
+        <strong>BMI:</strong> {{ $bmi }} - <span class="text-primary">Untergewicht!</span>
+    {{ else }}
+        <strong>BMI:</strong> {{ $bmi }} - <span class="text-success">Normalgewicht!</span>
+    {{ end }}
+</p>

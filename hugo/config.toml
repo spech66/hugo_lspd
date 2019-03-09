@@ -1,0 +1,30 @@
+baseURL = "https://example.com/"
+languageCode = "en-US"
+title = "Lifelog - Sebastian"
+# heme = "bootstrap-bp-hugo-theme"
+# googleAnalytics = "UA-123-45"
+copyright = "Sebastian Pech"
+enableRobotsTXT = true
+pygmentsCodeFences = true
+canonifyurls = true
+paginate = 25
+
+[sitemap]
+    changefreq = "weekly"
+    priority = 0.5
+
+[permalinks]
+    posts = "/:year/:month/:day/"
+    post = "/:year/:month/:day/"
+    pages = "/:slug/"
+    page = "/:slug/"
+
+[Author]  
+  name = "Sebastian Pech"
+
+[params]
+  description = "The lifelog of Sebastian Pech"
+  #images = ["logo.jpg"]
+  showPostSummary = true
+  startPageColumns = false
+  # customDateFormat = "02.01.2006"

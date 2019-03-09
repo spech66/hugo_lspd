@@ -1,0 +1,11 @@
+{{ $exercise := (.Get "exercise") }}
+{{ $reps := (.Get "reps") }}
+{{ $weight := (.Get "weight") }}
+{{ $notes := (.Get "notes") }}
+{{ $rating := (.Get "rating") }}
+
+<strong>{{ $exercise }}:</strong> {{ $reps }} x {{ $weight }} - Bewertung: {{ $rating }}
+{{ with $notes }}
+- {{ . }}
+{{ end }}
+<br />
