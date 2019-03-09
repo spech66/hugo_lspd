@@ -8,14 +8,14 @@ Create Hugo website from lifelogging/quantified self data related to [LifelogSP]
 * **Journal:** Data from [LifelogSP](https://github.com/spech66/lifelogspd)
 * **Strength training:** Data from [LifelogSP](https://github.com/spech66/lifelogspd)
 * **Endurance workout:** Data from [LifelogSP](https://github.com/spech66/lifelogspd)
-* **Mood and activities**: [Daylio - Mood Tracker and Micro Diary](https://daylio.webflow.io/)
-* **Habits**: [Loop Habit Tracker](https://play.google.com/store/apps/details?id=org.isoron.uhabits)
+* **Mood and activities**: Data from [Daylio - Mood Tracker and Micro Diary](https://daylio.webflow.io/)
+* **Habits**: Data from [Loop Habit Tracker](https://play.google.com/store/apps/details?id=org.isoron.uhabits)
 * **Tags/Categories**: Automatically created using the data sources above
 * **Theme**: [Bootstrap-BP hugo theme](https://github.com/spech66/bootstrap-bp-hugo-theme)
 
 ### Improvements
 
-* Parse the Habit data dynamically
+* Parse the Loop data dynamically
 
 ## Screenshots
 
@@ -56,7 +56,7 @@ hugo_lspd.exe -config example.config.json
 
 After you executed `hugo_lspd` the pages are created in the `hugo` subfolder. You can generate the website using the hugo command line tool now.
 
-Make sure you have the [Hugo](https://gohugo.io/) tools set up an ready. (For windows the easiest way is using [Chocolatey](https://chocolatey.org/))
+Make sure you have the [Hugo](https://gohugo.io/getting-started/installing) tools set up an ready. (For Windows the easiest way is using [Chocolatey](https://chocolatey.org/))
 
 ### Linux
 
