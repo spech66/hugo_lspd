@@ -12,3 +12,5 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
+hugo/run_test.sh
+hugo_lspd
