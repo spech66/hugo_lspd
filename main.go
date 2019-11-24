@@ -91,7 +91,6 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		defer f.Close()
 
 		// ===== HEADER =====
 		// Write first line and check for errors - then write the rest
@@ -193,5 +192,6 @@ func main() {
 		// ===== END CONTENT =====
 
 		f.Sync()
+		f.Close()
 	}
 }
