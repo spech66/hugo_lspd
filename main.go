@@ -155,6 +155,10 @@ func main() {
 				f.WriteString("    - " + v.Weekday + "\n")
 			}
 		}
+		// Add Journal category name if there is a journal entry
+		if len(journalEntry.Text) > 0 {
+			f.WriteString("    - Journal\n")
+		}
 		// == END CATEGORIES ==
 		f.WriteString("---\n\n")
 		// ===== END HEADER =====
